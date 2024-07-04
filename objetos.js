@@ -37,7 +37,26 @@ console.log(carro.especificacoes) //objeto dentro de objeto
 console.log("---------------------------------------");
 
 carro.descrever = function(){
-    console.log(`A marca do carro é ${this.marca}, o modelo é ${this.modelo}, a cor é ${this.cor} e o peso é ${this.peso}`);
+    console.log(`A marca do carro é ${this.marca}, o modelo é ${this.modelo}, a cor é ${this.cor} e o peso é ${this.especificacoes.peso}`);
     }
 
+console.log("---------------------------------------");
+
+for (let chave in carro) {
+    let tipo = typeof carro[chave]
+        if (tipo !== "object" && tipo !== "function") {
+                console.log(`A chave ${chave} tem o valor ${carro[chave]}`);
+        }
+}
+
+console.log("---------------------------------------");
+
+const proprietario = {
+    nome: "João",
+    idade: 40,
+    categoriaCNH: "B",
+    ...carro
+}
+
+console.log(proprietario)
  
